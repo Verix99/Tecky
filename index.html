@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -59,7 +60,7 @@ button{font-family:inherit}
 .d.on{background:radial-gradient(circle at 34% 30%,var(--dot-hi),var(--dot) 62%);box-shadow:0 calc(var(--s)*.08) calc(var(--s)*.16) var(--dot-shadow)}
 .d em{font-style:normal;font-weight:700;font-size:calc(var(--s)*.46);line-height:1;color:var(--muted)}
 .d.on em{color:var(--bg)}
-.bgroup{display:inline-flex;gap:12px;align-items:center}
+.bgroup{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:12px;align-items:center;max-width:100%}
 .bword{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 30px}
 
 /* ---------- Buttons ---------- */
@@ -138,6 +139,44 @@ button{font-family:inherit}
 .tile__ch{font-size:1.35rem;font-weight:700;line-height:1}
 .tile__dots{font-size:.8rem;color:var(--muted);line-height:1.2}
 .tile--new{opacity:.45}
+
+/* ---------- Procvičování ---------- */
+.pr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.pr-card{appearance:none;font:inherit;color:var(--ink);text-align:left;display:grid;gap:6px;align-content:start;cursor:pointer;box-shadow:0 4px 0 var(--line);padding:18px 16px;transition:transform .08s,box-shadow .08s}
+.pr-card:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 var(--line)}
+.pr-card:disabled{opacity:.55;cursor:default}
+.pr-prev{margin-bottom:8px}
+.pr-title{font-weight:700;font-size:1.25rem}
+.pr-desc{color:var(--muted);font-size:.93rem;line-height:1.35}
+.pr-count{font-weight:700;color:var(--accent);font-size:.88rem;margin-top:4px}
+.pr-set{margin-top:16px;display:grid;gap:18px}
+.pr-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.pr-label{font-weight:700}
+.seg{display:flex;gap:8px}
+.chip{appearance:none;font:inherit;font-weight:700;min-width:52px;min-height:44px;border-radius:12px;border:2px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+.pr-check{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-weight:700}
+.pr-check input{width:24px;height:24px;margin:2px 0 0;accent-color:var(--accent);flex:none}
+.pr-check small{display:block;font-weight:400;color:var(--muted);font-size:.9rem;margin-top:2px}
+.dir{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.dir button{appearance:none;font:inherit;color:var(--ink);text-align:left;padding:12px 14px;border-radius:16px;border:2px solid var(--line);background:var(--surface);box-shadow:0 4px 0 var(--line);cursor:pointer}
+.dir button b{display:block;font-size:1.08rem}
+.dir button span{display:block;color:var(--muted);font-size:.86rem;line-height:1.3;margin-top:2px}
+.dir button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 4px 0 var(--accent)}
+.dir button[aria-pressed="true"] b{color:var(--accent)}
+
+/* ---------- Psaní ---------- */
+.wr-target{font-size:1.6rem;font-weight:700;margin:6px 0 4px;line-height:1.25}
+.wr-stage{flex-direction:column;gap:20px}
+.wr-strip{display:flex;flex-wrap:wrap;gap:6px 8px;justify-content:center;align-items:center;min-height:44px;width:100%}
+.wr-c{display:inline-flex;padding:5px;border-radius:8px;border:2px solid transparent}
+.wr-sp{width:18px;height:40px}
+.wr-cur{border:2px dashed var(--accent);background:var(--accent-soft)}
+.wr-c.bad{border-color:var(--bad);background:var(--bad-soft)}
+.wr-tools{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:8px;width:100%}
+.wr-btn{min-height:48px;padding:10px 8px;font-size:.95rem}
+.wr-sol{width:100%;border-top:2px solid var(--line);padding-top:18px;text-align:center}
+.wr-sol h3{font-size:1rem;margin:0 0 14px;color:var(--ok-text)}
 .danger{margin:40px 0 48px;padding-top:20px;border-top:1px solid var(--line)}
 .danger h2{font-size:1.05rem;margin:0 0 4px}
 .danger p{color:var(--muted);font-size:.95rem;margin:0 0 14px}
@@ -160,6 +199,13 @@ button{font-family:inherit}
 .opt:active:not(:disabled){transform:translateY(2px)}
 .opt .key{position:absolute;top:8px;left:10px;font-size:.78rem;color:var(--muted);border:1.5px solid var(--line);border-radius:6px;padding:0 5px;line-height:1.45}
 .opt .glyph{font-size:2.1rem;font-weight:700;line-height:1}
+.gname{display:block;font-size:.82rem;font-weight:700;color:var(--muted);line-height:1.2;margin-top:6px;text-align:center}
+.gname--lg{font-size:1.05rem;color:var(--ink);margin-top:0}
+.opt{flex-direction:column}
+.mt{align-content:center}
+.mt .glyph{font-size:1.8rem;font-weight:700;line-height:1}
+.intro__name{font-weight:700;font-size:1.3rem;margin-top:-8px}
+.tile__name{font-size:.78rem;font-weight:700;color:var(--ink);line-height:1.2}
 .opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 4px 0 var(--accent)}
 .opt.right{border-color:var(--ok);background:var(--ok-soft);box-shadow:0 4px 0 var(--ok)}
 .opt.wrong{border-color:var(--bad);background:var(--bad-soft);box-shadow:0 4px 0 var(--bad)}
@@ -244,6 +290,7 @@ button{font-family:inherit}
     <nav class="tabs wrap" role="tablist" aria-label="Sekce aplikace">
       <button class="tab" role="tab" data-tab="course" aria-selected="true">Kurz</button>
       <button class="tab" role="tab" data-tab="abc" aria-selected="false">Abeceda</button>
+      <button class="tab" role="tab" data-tab="practice" aria-selected="false">Procvičování</button>
     </nav>
   </header>
   <main id="homeMain" class="wrap"></main>
@@ -274,11 +321,18 @@ button{font-family:inherit}
 const BR = {
   a:'1', b:'12', c:'14', d:'145', e:'15', f:'124', g:'1245', h:'125', i:'24', j:'245',
   k:'13', l:'123', m:'134', n:'1345', o:'135', p:'1234', q:'12345', r:'1235', s:'234', t:'2345',
-  u:'136', v:'1236', w:'2456', x:'1346', y:'13456', z:'1356',
+  u:'136', v:'1236', w:'12356', x:'1346', y:'13456', z:'1356',
   'á':'16', 'č':'146', 'ď':'1456', 'é':'345', 'ě':'126', 'í':'34', 'ň':'1246', 'ó':'246',
-  'ř':'12456', 'š':'156', 'ť':'1256', 'ú':'346', 'ů':'23456', 'ý':'12346', 'ž':'2346',
-  '#':'3456'
+  'ř':'2456', 'š':'156', 'ť':'1256', 'ú':'346', 'ů':'23456', 'ý':'12346', 'ž':'2346',
+  '#':'3456',
+  '.':'3', ',':'2', ';':'23', ':':'25', '?':'26', '!':'235', '-':'36', "'":'4', '"':'2356',
+  '(':'236', ')':'356', '*':'35', '+':'256', '/':'12456',
+  CAP:'6', CAPS:'56', LOW:'5', ERR:'123456'
 };
+const SYM = {'#':'číselný znak', '.':'tečka', ',':'čárka', ';':'středník', ':':'dvojtečka', '?':'otazník', '!':'vykřičník', '-':'spojovník', "'":'apostrof', '"':'uvozovky',
+  '(':'levá závorka', ')':'pravá závorka', '*':'hvězdička', '+':'plus', '/':'lomítko',
+  CAP:'velké písmeno', CAPS:'řetězec velkých písmen', LOW:'malé písmeno', ERR:'chyba'};
+const SYM_KEYS = ['.',',',';',':','?','!','-',"'",'"','(',')','*','+','/','CAP','CAPS','LOW','ERR'];
 const DIGIT = {'1':'a','2':'b','3':'c','4':'d','5':'e','6':'f','7':'g','8':'h','9':'i','0':'j'};
 
 const TIPS = {
@@ -292,22 +346,40 @@ const TIPS = {
   h:'Jako „b“, jen přidej bod 5.',
   i:'Šikmá čára opačným směrem než u „e“.',
   j:'Jako „i“, jen přidej bod 5.',
-  w:'Písmeno w přibylo do Braillova písma později, proto nezapadá do řady. Je to „j“ s přidaným bodem 6.',
+  w:'V české abecedě má w vlastní tvar, který nezapadá do řady: skoro plná buňka, chybí jen bod 4.',
   'á':'Jako „a“, jen přidej bod 6.',
   'é':'Body 3, 4 a 5 – jako číselný znak bez bodu 6.',
-  'í':'Jen dva body: 3 vlevo dole a 4 vpravo nahoře.',
-  'ó':'Jako „i“, jen přidej bod 6.',
-  'ú':'Jako „í“, jen přidej bod 6.',
-  'ů':'Skoro plná buňka – chybí jen bod 1.',
-  'ý':'Skoro plná buňka – chybí jen bod 5.',
+  'í':'Natažené „i“: bod 2 sjede dolů na bod 3. Zbydou body 3 a 4.',
+  'ó':'Zrcadlově obrácené „o“: prohoď levý a pravý sloupec (1↔4, 2↔5, 3↔6).',
+  'ú':'Zrcadlově obrácené „u“.',
+  'ů':'Skoro plná buňka – chybí jen bod 1. Je to zrcadlově obrácené „w“.',
+  'ý':'Zrcadlově obrácené „y“ – skoro plná buňka, chybí jen bod 5.',
   'č':'Jako „c“, jen přidej bod 6.',
-  'š':'Jako „e“, jen přidej bod 6.',
-  'ž':'Jako „ú“, jen přidej bod 2.',
-  'ř':'Jako „g“, jen přidej bod 6.',
-  'ě':'Jako „b“, jen přidej bod 6.',
+  'š':'Zrcadlově obrácené „s“.',
+  'ž':'Zrcadlově obrácené „z“.',
+  'ř':'Zrcadlově obrácené „r“.',
+  'ě':'Jako „b“, jen přidej bod 6. Zároveň je to zrcadlově obrácené „é“.',
   'ď':'Jako „d“, jen přidej bod 6.',
-  'ť':'Jako „h“, jen přidej bod 6.',
-  'ň':'Jako „f“, jen přidej bod 6.'
+  'ť':'Zrcadlově obrácené „t“.',
+  'ň':'Zrcadlově obrácené „n“.',
+  '.':'Jen bod 3 – vlevo dole.',
+  ',':'Jen bod 2 – vlevo uprostřed.',
+  '?':'Body 2 a 6 – šikmo z levého středu dolů doprava.',
+  '!':'Body 2, 3 a 5.',
+  ';':'Body 2 a 3 – dva body dole v levém sloupci.',
+  ':':'Body 2 a 5 – dva body vedle sebe uprostřed.',
+  '-':'Body 3 a 6 – celá spodní řada.',
+  "'":'Jen bod 4 – vpravo nahoře.',
+  '"':'Body 2, 3, 5 a 6 – čtverec ze spodních čtyř bodů. Stejný znak se píše na začátku i na konci.',
+  '(':'Body 2, 3 a 6.',
+  ')':'Body 3, 5 a 6 – zrcadlově obrácená levá závorka.',
+  '*':'Body 3 a 5.',
+  '+':'Body 2, 5 a 6.',
+  '/':'Plná buňka bez bodu 3.',
+  CAP:'Píše se před písmenem a říká: další písmeno je velké. „Eva“ = bod 6, e, v, a.',
+  CAPS:'Píše se před slovem a říká: celé slovo je velkými písmeny, např. „ČR“ nebo „USA“.',
+  LOW:'Píše se za číslem, když hned po něm následuje písmeno a až j – aby se nečetlo jako další číslice. Např. „3a“.',
+  ERR:'Všech šest bodů. Takhle se přepíše chybně napsaný znak.'
 };
 const PLUS3 = {k:'a',l:'b',m:'c',n:'d',o:'e',p:'f',q:'g',r:'h',s:'i',t:'j'};
 const PLUS6 = {u:'k',v:'l',x:'m',y:'n',z:'o'};
@@ -325,20 +397,36 @@ const SECTIONS = [
   {title:'Písmena k až t', note:'Stejné tvary jako a až j, jen s přidaným bodem 3.', lessons:[
     {id:'l-klm', learn:['k','l','m']}, {id:'l-nop', learn:['n','o','p']}, {id:'l-qrst', learn:['q','r','s','t']},
     {id:'p-kt', kind:'practice', name:'Procvičení k až t'}]},
-  {title:'Písmena u až z', note:'Tvary k až o s přidaným bodem 6. Písmeno w má vlastní tvar.', lessons:[
+  {title:'Písmena u až z', note:'Tvary k až o s přidaným bodem 6. Písmeno w má v češtině vlastní tvar.', lessons:[
     {id:'l-uvx', learn:['u','v','x']}, {id:'l-yzw', learn:['y','z','w']}, {id:'p-uz', kind:'practice', name:'Procvičení u až z'}]},
-  {title:'Česká písmena', note:'Mnohá vzniknou přidáním bodu 6 k základnímu písmenu.', lessons:[
+  {title:'Česká písmena', note:'Á, č a ď mají navíc bod 6. Většina ostatních je zrcadlově obrácené základní písmeno.', lessons:[
     {id:'l-aei', learn:['á','é','í']}, {id:'l-ouy', learn:['ó','ú','ů','ý']}, {id:'l-csz', learn:['č','š','ž']},
     {id:'l-re', learn:['ř','ě']}, {id:'l-dtn', learn:['ď','ť','ň']}, {id:'p-cz', kind:'practice', name:'Procvičení diakritiky'}]},
   {title:'Čísla', note:'Číselný znak a za ním písmena a až j.', lessons:[
     {id:'n-15', learn:['1','2','3','4','5'], name:'Čísla 1 až 5'}, {id:'n-60', learn:['6','7','8','9','0'], name:'Čísla 6 až 0'},
     {id:'p-num', kind:'practice', dom:'num', name:'Procvičení čísel'}]},
+  {title:'Interpunkce', note:'Většina znamének leží ve spodní části buňky.', lessons:[
+    {id:'z-1', learn:['.',',','?','!'], name:'Tečka, čárka, otazník, vykřičník', texts:['ahoj!','jak se máš?','pes, kočka','dobrý den.','pozor!','co je to?','kdo? já!','ano, ne.']},
+    {id:'z-2', learn:[';',':','-',"'"], name:'Středník, dvojtečka, spojovník, apostrof', texts:['ano; ne','čas: 8','černo-bílý','tik-tak',"rock'n'roll",'pozor: pes!','modro-žlutý']},
+    {id:'z-3', learn:['"','(',')'], name:'Uvozovky a závorky', texts:['"ahoj"','(dům)','pes (čivava)','řekl: "ano"','(1)']},
+    {id:'z-4', learn:['*','+','/'], name:'Hvězdička, plus, lomítko', texts:['5 + 3','2 + 2','km/h','on/ona','a*b','*poznámka']},
+    {id:'p-zn', kind:'practice', dom:'sym', name:'Procvičení interpunkce', texts:['ahoj!','jak se máš?','pes, kočka','co je to?','ano; ne','čas: 8','černo-bílý',"rock'n'roll",'"ahoj"','(dům)','řekl: "ano"','5 + 3','km/h','a*b']}]},
+  {title:'Velká písmena a značky', note:'Prefixy mění význam znaku, který po nich následuje.', lessons:[
+    {id:'z-5', learn:['CAP','CAPS','LOW','ERR'], name:'Velká písmena a značky', texts:['Eva','Praha','Brno','Ahoj, Petře!','ČR','USA','Jmenuji se Jana.','Bydlím v Praze.','pokoj 3a','byt 12b','Eva a Petr','NE!']}]},
   {title:'Slova a věty', note:'Plynulé čtení celých vět.', lessons:[
     {id:'s-short', kind:'sentences', name:'Krátké věty', texts:['mám psa','dobrý den','jak se máš','ahoj světe','je mi dobře','mám rád čaj','dnes je hezky']},
-    {id:'s-long', kind:'sentences', name:'Delší věty', texts:['čtu braillovo písmo','učím se každý den','kočka spí na gauči','venku svítí slunce','zítra pojedu vlakem','můj pes má rád vodu']}]}
+    {id:'s-long', kind:'sentences', name:'Delší věty', texts:['čtu braillovo písmo','učím se každý den','kočka spí na gauči','venku svítí slunce','zítra pojedu vlakem','můj pes má rád vodu']},
+    {id:'s-caps', kind:'sentences', name:'Věty s velkými písmeny', texts:['Dobrý den, paní Nováková.','Jak se máš, Evo?','Praha je hlavní město ČR.','Mám 2 psy a 1 kočku.','Pozor, pes!','Kde je Brno?','Zítra je pondělí.','Tom řekl: "Ahoj!"']}]}
 ];
 const LESSONS = [];
 SECTIONS.forEach((s,si)=>s.lessons.forEach(l=>{ l.section=si; l.idx=LESSONS.length; LESSONS.push(l); }));
+const PR_WORDS = WORDS.concat(['Praha','Brno','Ostrava','Plzeň','Vltava','Morava','Šumava','Eva','Petr','Jana','Tom','Kuba','ČR','USA']);
+const PR_SENTENCES = [...new Set(LESSONS.filter(l=>l.kind==='sentences').flatMap(l=>l.texts).concat([
+  'Venku prší.','Kde bydlíš?','Mám hlad.','Dnes je pátek.','Jdu do školy.','Máma vaří polévku.','Táta čte noviny.','Pes štěká na kočku.',
+  'Na stole je jablko.','Zítra pojedeme k moři.','Kolik je hodin?','Je 8 hodin ráno.','Mám rád zmrzlinu.','Kniha leží na židli.',
+  'V parku kvetou růže.','Babička peče koláče.','Vlak jede do Brna.','Děti si hrají venku.','Ahoj, jak se máš?','Děkuji, mám se dobře.',
+  'Na obloze svítí hvězdy.','Petr a Eva jdou do kina.','Učím se Braillovo písmo.','Můj kamarád se jmenuje Tom.','Dnes je 21. října.'
+]))];
 const PRAISE = ['Správně!','Výborně!','Přesně tak!','Skvělá práce!','Paráda!'];
 const DAILY_GOAL = 30;
 const ZIG = [0,46,70,46,0,-46,-70,-46];
@@ -350,14 +438,35 @@ const pick = a => a[Math.floor(Math.random()*a.length)];
 const shuffle = a => { a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
 const cap = s => s.charAt(0).toUpperCase()+s.slice(1);
 const isDigit = x => /^[0-9]$/.test(x);
-const domOf = x => isDigit(x)?'num':'let';
+const isLetter = c => /^\p{L}$/u.test(c);
+const domOf = x => isDigit(x)?'num':isLetter(x)?'let':'sym';
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const nameOf = x => SYM[x]||x;
+const kindOf = x => isDigit(x)?'číslo':isLetter(x)?'písmeno':'znak';
+function glyphHTML(x){ if(x.length>1) return `<span class="gname gname--lg">${SYM[x]}</span>`; if(SYM[x]) return `<span class="glyph">${esc(x)}</span><span class="gname">${SYM[x]}</span>`; return `<span class="glyph">${esc(x)}</span>`; }
 const letterDots = x => isDigit(x)?BR[DIGIT[x]]:BR[x];
 const itemCells = x => isDigit(x)?[BR['#'],BR[DIGIT[x]]]:[BR[x]];
-const norm = s => s.toLowerCase().trim().replace(/\s+/g,' ');
+const norm = s => s.trim().replace(/\s+/g,' ').replace(/[„“”″]/g,'"').replace(/[‚‘’´`]/g,"'");
 const strip = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 function plural(n,one,few,many){ return n===1?one:(n>=2&&n<=4?few:many); }
 function dotsText(d){ const a=String(d).split(''); if(a.length===1) return 'bod '+a[0]; return 'body '+a.slice(0,-1).join(', ')+' a '+a[a.length-1]; }
-function toCells(w){ const out=[]; let num=false; for(const c of w.toLowerCase()){ if(isDigit(c)){ if(!num){ out.push(BR['#']); num=true; } out.push(BR[DIGIT[c]]); } else { num=false; out.push(BR[c]||''); } } return out; }
+function toCells(w){
+  const out=[], ch=[...w]; let num=false, capsDone=false;
+  const lets=ch.filter(isLetter), allCaps=lets.length>=2&&lets.every(c=>c!==c.toLowerCase());
+  for(let i=0;i<ch.length;i++){
+    const c=ch[i], lc=c.toLowerCase(), nx=ch[i+1];
+    if(isDigit(c)){ if(!num){ out.push(BR['#']); num=true; } out.push(BR[DIGIT[c]]); continue; }
+    if(num&&(c===','||c==='.')&&nx&&isDigit(nx)){ out.push(BR[c]); continue; }
+    if(isLetter(c)){
+      if(num&&c===lc&&'abcdefghij'.includes(lc)) out.push(BR.LOW);
+      num=false;
+      if(c!==lc){ if(allCaps){ if(!capsDone){ out.push(BR.CAPS); capsDone=true; } } else out.push(BR.CAP); }
+      out.push(BR[lc]||''); continue;
+    }
+    num=false; out.push(BR[c]||'');
+  }
+  return out;
+}
 function cellHTML(dots,size='md',o={}){
   const on=new Set(String(dots).split(''));
   const label=dots?'Braillova buňka, '+dotsText(dots):'prázdná buňka';
@@ -373,8 +482,8 @@ function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('sh
 
 /* ================= State & persistence ================= */
 const LS_KEY='tecky-braille-v1';
-function defaultState(){ return {v:1, completed:{}, xp:0, streak:0, lastDay:null, todayDate:null, todayXp:0, stats:{}, updatedAt:0}; }
-function normalize(o){ const d=defaultState(); o=o||{}; return Object.assign(d,o,{completed:Object.assign({},o.completed||{}), stats:Object.assign({},o.stats||{})}); }
+function defaultState(){ return {v:1, completed:{}, xp:0, streak:0, lastDay:null, todayDate:null, todayXp:0, stats:{}, prefs:{}, updatedAt:0}; }
+function normalize(o){ const d=defaultState(); o=o||{}; return Object.assign(d,o,{completed:Object.assign({},o.completed||{}), stats:Object.assign({},o.stats||{}), prefs:Object.assign({},o.prefs||{})}); }
 let S=defaultState();
 function loadLocal(){ try{ const r=localStorage.getItem(LS_KEY); if(r) S=normalize(JSON.parse(r)); }catch(e){} }
 function saveLocal(){ try{ localStorage.setItem(LS_KEY,JSON.stringify(S)); }catch(e){} }
@@ -407,7 +516,7 @@ async function initRemote(){
   }catch(e){}
 }
 
-const unlocked = i => i===0 || !!S.completed[LESSONS[i-1].id];
+const unlocked = i => i===0 || !!S.completed[LESSONS[i-1].id] || !!S.completed[LESSONS[i].id];
 function knownItems(){ const a=[]; LESSONS.forEach(l=>{ if(l.learn&&S.completed[l.id]) l.learn.forEach(x=>a.push(x)); }); return a; }
 function learnedThrough(idx){ const a=[]; for(let i=0;i<=idx;i++) (LESSONS[i].learn||[]).forEach(x=>a.push(x)); return a; }
 function sectionItems(l){ const a=[]; SECTIONS[l.section].lessons.forEach(x=>(x.learn||[]).forEach(y=>a.push(y))); return a; }
@@ -417,13 +526,13 @@ function rec(x,ok){ if(!x) return; const s=S.stats[x]||(S.stats[x]={r:0,w:0}); o
 function weight(x){ const s=S.stats[x]; return s?1+(s.w*3)/(s.r+1):1.4; }
 function weighted(pool){ const w=pool.map(weight); let r=Math.random()*w.reduce((a,b)=>a+b,0); for(let i=0;i<pool.length;i++){ r-=w[i]; if(r<=0) return pool[i]; } return pool[pool.length-1]; }
 function weakList(pool,n){ return pool.filter(x=>S.stats[x]&&S.stats[x].w>0).sort((a,b)=>{ const sa=S.stats[a],sb=S.stats[b]; return sb.w/(sb.r+sb.w+1)-sa.w/(sa.r+sa.w+1); }).slice(0,n); }
-function wordsFor(list,known,focus){ const K=new Set(known); let w=list.filter(x=>[...x].every(c=>c===' '||K.has(c))); if(focus&&focus.length){ const F=new Set(focus); const f=w.filter(x=>[...x].some(c=>F.has(c))); if(f.length) w=f; } return w; }
+function wordsFor(list,known,focus){ const K=new Set(known); let w=list.filter(x=>[...x].every(c=>c===' '||(K.has(c.toLowerCase())&&(c===c.toLowerCase()||K.has('CAP'))))); if(focus&&focus.length){ const F=new Set(focus); const f=w.filter(x=>[...x].some(c=>F.has(c))); if(f.length) w=f; } return w; }
 function matchItems(primary,pool){ const s=shuffle(primary).slice(0,4); shuffle(pool.filter(x=>!s.includes(x))).forEach(x=>{ if(s.length<4) s.push(x); }); return s; }
 function distractors(item,pool,n){
   const d=domOf(item);
   let cand=pool.filter(x=>x!==item&&domOf(x)===d);
   cand=[...new Set(cand)];
-  if(cand.length<n){ const extra=(d==='num'?'1234567890':'abcdefghijklmnopqrstuvwxyz').split('').filter(x=>x!==item&&!cand.includes(x)); cand=cand.concat(shuffle(extra).slice(0,n-cand.length)); }
+  if(cand.length<n){ const extra=(d==='num'?'1234567890'.split(''):d==='sym'?SYM_KEYS:'abcdefghijklmnopqrstuvwxyz'.split('')).filter(x=>x!==item&&!cand.includes(x)); cand=cand.concat(shuffle(extra).slice(0,n-cand.length)); }
   cand=cand.map(x=>({x,k:dist(item,x)+Math.random()*1.6})).sort((a,b)=>a.k-b.k).map(o=>o.x);
   return shuffle(cand.slice(0,n+1)).slice(0,n);
 }
@@ -440,7 +549,8 @@ function buildLesson(l){
     const focus=()=>(!prev.length||Math.random()<0.65)?pick(neu):weighted(prev);
     const mix=['pickLetter','pickCell','build','pickLetter','pickCell','build'].map(t=>({t,item:focus(),pool}));
     if(pool.length>=3) mix.push({t:'match',items:matchItems(neu,pool)});
-    if(dom==='let'){ const w=wordsFor(WORDS,known,neu); if(w.length) mix.push({t:'read',text:pick(w)}); }
+    if(l.texts){ shuffle(wordsFor(l.texts,known,neu)).slice(0,2).forEach(t=>mix.push({t:'read',text:t})); }
+    else if(dom==='let'){ const w=wordsFor(WORDS,known,neu); if(w.length) mix.push({t:'read',text:pick(w)}); }
     return head.concat(shuffle(mix));
   }
   if(l.kind==='practice'){
@@ -449,7 +559,7 @@ function buildLesson(l){
     const sec=sectionItems(l).filter(x=>domOf(x)===dom);
     const focus=()=>Math.random()<0.7?weighted(sec):weighted(pool);
     const ex=[];
-    const list=dom==='num'?NUMBERS:wordsFor(WORDS,known,sec);
+    const list=l.texts?wordsFor(l.texts,known,null):dom==='num'?NUMBERS:wordsFor(WORDS,known,sec);
     shuffle(list).slice(0,4).forEach(w=>ex.push({t:'read',text:w}));
     ['build','build','build','pickLetter','pickLetter','pickCell','pickCell'].forEach(t=>ex.push({t,item:focus(),pool}));
     ex.push({t:'match',items:matchItems(sec,pool)});
@@ -465,10 +575,10 @@ function buildLesson(l){
 }
 function buildReview(){
   const all=knownItems();
-  const lets=[...new Set(all.filter(x=>!isDigit(x)))], nums=[...new Set(all.filter(isDigit))];
+  const lets=[...new Set(all.filter(x=>domOf(x)==='let'))], nums=[...new Set(all.filter(isDigit))], syms=[...new Set(all.filter(x=>domOf(x)==='sym'))];
   const ex=[];
   ['build','pickLetter','pickCell','build','pickLetter','pickCell','build','pickLetter'].forEach(t=>{
-    const pool=(nums.length&&Math.random()<0.25)?nums:lets;
+    const r=Math.random(), pool=(nums.length&&r<0.2)?nums:(syms.length>=3&&r>0.78)?syms:lets;
     ex.push({t,item:weighted(pool),pool});
   });
   const weak=weakList(lets,6);
@@ -477,6 +587,9 @@ function buildReview(){
   if(lets.length>=3) ex.push({t:'match',items:matchItems(weakList(lets,4),lets)});
   return shuffle(ex);
 }
+
+function practiceList(mode,knownOnly){ const list=mode==='words'?PR_WORDS:PR_SENTENCES; return knownOnly?wordsFor(list,knownItems(),null):list.slice(); }
+function buildPractice(l){ const list=shuffle(practiceList(l.mode,l.knownOnly)), out=[]; for(let i=0;i<l.len&&list.length;i++) out.push({t:l.dir==='write'?'write':'read',text:list[i%list.length]}); return out; }
 
 /* ================= Home ================= */
 let tab='course';
@@ -508,7 +621,7 @@ function renderCourse(){
     h+=`<div class="card goal">
       <div class="goal__head"><h2>Dnešní cíl</h2><span class="goal__num">${tx} / ${DAILY_GOAL} XP</span></div>
       <div class="meter" role="progressbar" aria-label="Dnešní cíl" aria-valuemin="0" aria-valuemax="${DAILY_GOAL}" aria-valuenow="${tx}"><i style="width:${pct}%"></i></div>
-      <p class="goal__weak">${weak.length?`Nejvíc chybuješ v: ${weak.map(x=>'„'+x+'“').join(', ')}. Opakování je bude zkoušet častěji.`:'Opakování namíchá všechno, co už umíš.'}</p>
+      <p class="goal__weak">${weak.length?`Nejvíc chybuješ v: ${weak.map(x=>'„'+nameOf(x)+'“').join(', ')}. Opakování je bude zkoušet častěji.`:'Opakování namíchá všechno, co už umíš.'}</p>
       <button class="btn btn--ghost btn--wide" id="reviewBtn">Opakovat naučené</button></div>`;
   }
   SECTIONS.forEach(s=>{
@@ -539,7 +652,7 @@ function renderCourse(){
 function renderAbc(){
   const m=$('#homeMain');
   const known=new Set(knownItems());
-  const groups=[['Písmena a až j','abcdefghij'],['Písmena k až t','klmnopqrst'],['Písmena u až z','uvwxyz'],['Česká písmena','áéíóúůýčšžřěďťň'],['Čísla','#1234567890']];
+  const groups=[['Písmena a až j','abcdefghij'],['Písmena k až t','klmnopqrst'],['Písmena u až z','uvwxyz'],['Česká písmena','áéíóúůýčšžřěďťň'],['Čísla','#1234567890'],['Interpunkce',SYM_KEYS.slice(0,14)],['Prefixy a značky',['CAP','CAPS','LOW','ERR']]];
   let h='<p class="lead">Přehled všech znaků. Ty, které ještě nemáš za sebou, jsou ztlumené.</p>';
   groups.forEach(([title,chars])=>{
     h+=`<div class="abc-group"><h2>${title}</h2><div class="tiles">`;
@@ -549,7 +662,7 @@ function renderAbc(){
         return;
       }
       const cells=itemCells(x);
-      h+=`<div class="tile${known.has(x)?'':' tile--new'}">${cells.length>1?cellsHTML(cells,'sm'):cellHTML(cells[0],'md')}<span class="tile__ch">${x}</span><span class="tile__dots">${isDigit(x)?'# + '+DIGIT[x]:BR[x].split('').join(' ')}</span></div>`;
+      h+=`<div class="tile${known.has(x)?'':' tile--new'}">${cells.length>1?cellsHTML(cells,'sm'):cellHTML(cells[0],'md')}${domOf(x)==='sym'?(x.length>1?'':`<span class="tile__ch">${esc(x)}</span>`)+`<span class="tile__name">${SYM[x]}</span>`:`<span class="tile__ch">${x}</span>`}<span class="tile__dots">${isDigit(x)?'# + '+DIGIT[x]:BR[x].split('').join(' ')}</span></div>`;
     });
     h+='</div></div>';
   });
@@ -561,18 +674,43 @@ function renderAbc(){
     S=defaultState(); save(); toast('Postup je smazaný.'); tab='course'; renderHome();
   });
 }
+function renderPractice(){
+  const m=$('#homeMain');
+  const hasKnown=knownItems().length>0, P=S.prefs||{};
+  const len=[5,10,20].includes(P.len)?P.len:10;
+  const ko=hasKnown&&(P.knownOnly!==undefined?!!P.knownOnly:true);
+  const dir=P.dir==='write'?'write':'read';
+  const nW=practiceList('words',ko).length, nS=practiceList('sentences',ko).length;
+  const card=(mode,title,desc,n,units,prev)=>`<button class="card pr-card" data-mode="${mode}"${n?'':' disabled'}>
+      <span class="pr-prev" aria-hidden="true">${cellsHTML(toCells(prev),'sm')}</span>
+      <span class="pr-title">${title}</span><span class="pr-desc">${desc}</span>
+      <span class="pr-count">${n?n+' '+plural(n,...units)+' k dispozici':'Zatím nic – projdi pár lekcí'}</span></button>`;
+  m.innerHTML=`<div class="dir" role="group" aria-label="Směr procvičování">
+      <button data-dir="read" aria-pressed="${dir==='read'}"><b>Čtení</b><span>Z Braillova písma do textu</span></button>
+      <button data-dir="write" aria-pressed="${dir==='write'}"><b>Psaní</b><span>Z textu do Braillova písma</span></button></div>
+    <p class="lead" style="margin-top:16px">${dir==='write'?'Uvidíš text a napíšeš ho v Braillově písmu buňku po buňce.':'Přečti text v Braillově písmu a napiš, co v něm stojí.'} Chyby tady neberou srdíčka.</p>
+    <div class="pr-grid">${card('words','Slova','Jednotlivá slova a jména.',nW,['slovo','slova','slov'],'pes')}${card('sentences','Věty','Krátké i delší věty s interpunkcí.',nS,['věta','věty','vět'],'věta')}</div>
+    <div class="card pr-set">
+      <div class="pr-row"><span class="pr-label" id="lenLbl">Počet úloh</span><div class="seg" role="group" aria-labelledby="lenLbl">${[5,10,20].map(n=>`<button class="chip" data-len="${n}" aria-pressed="${n===len}">${n}</button>`).join('')}</div></div>
+      <label class="pr-check"><input type="checkbox" id="knownOnly"${ko?' checked':''}${hasKnown?'':' disabled'}><span>Jen znaky, které už znám<small>${hasKnown?'Vypni, pokud chceš i znaky, které tě kurz ještě nenaučil.':'Půjde zapnout, až dokončíš první lekci.'}</small></span></label>
+    </div><div style="height:40px"></div>`;
+  $$('.pr-card',m).forEach(b=>b.addEventListener('click',()=>startLesson({practice:true,id:'practice',mode:b.dataset.mode,len,knownOnly:ko,dir})));
+  $$('.dir button',m).forEach(b=>b.addEventListener('click',()=>{ S.prefs=Object.assign({},S.prefs,{dir:b.dataset.dir}); save(); renderPractice(); }));
+  $$('.chip',m).forEach(b=>b.addEventListener('click',()=>{ S.prefs=Object.assign({},S.prefs,{len:+b.dataset.len}); save(); renderPractice(); }));
+  const kc=$('#knownOnly',m); kc.addEventListener('change',()=>{ S.prefs=Object.assign({},S.prefs,{knownOnly:kc.checked}); save(); renderPractice(); });
+}
 function renderHome(){
   renderHeader();
   $$('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===tab)));
-  if(tab==='course') renderCourse(); else renderAbc();
+  if(tab==='course') renderCourse(); else if(tab==='practice') renderPractice(); else renderAbc();
 }
 $$('.tab').forEach(t=>t.addEventListener('click',()=>{ tab=t.dataset.tab; window.scrollTo(0,0); renderHome(); }));
 
 /* ================= Lesson engine ================= */
 let L=null;
 function startLesson(lesson){
-  const ex=lesson.review?buildReview():buildLesson(lesson);
-  L={lesson,queue:ex,total:ex.length,done:0,hearts:5,mistakes:0,cur:null,state:'check',sel:null,check:null,toggle:null};
+  const ex=lesson.practice?buildPractice(lesson):lesson.review?buildReview():buildLesson(lesson);
+  L={lesson,queue:ex,total:ex.length,done:0,hearts:5,mistakes:0,cur:null,state:'check',sel:null,check:null,toggle:null,free:!!lesson.practice};
   $('#home').hidden=true; $('#lesson').hidden=false;
   updateTop(); next();
 }
@@ -581,7 +719,7 @@ function updateTop(){
   if(!L) return;
   const p=Math.min(100,Math.round(L.done/L.total*100));
   $('#barFill').style.width=p+'%'; $('#bar').setAttribute('aria-valuenow',p);
-  $('#hearts').textContent=L.hearts;
+  $('#hearts').textContent=L.free?'∞':L.hearts;
 }
 function setFooter(state,enabled,title,body){
   const f=$('#lfoot'); f.dataset.state=state;
@@ -608,10 +746,11 @@ function renderExercise(){
   if(ex.t==='build') return renderBuild(ex,m);
   if(ex.t==='match') return renderMatch(ex,m);
   if(ex.t==='read') return renderRead(ex,m);
+  if(ex.t==='write') return renderWrite(ex,m);
 }
 function resolve(r){
   if(r.ok){ L.done++; setFooter('ok',true,pick(PRAISE),r.okHTML||''); }
-  else { L.hearts=Math.max(0,L.hearts-1); L.mistakes++; L.queue.push(Object.assign({},L.cur)); setFooter('bad',true,'Tohle není ono',r.correctHTML||''); }
+  else { L.mistakes++; if(L.free) L.done++; else { L.hearts=Math.max(0,L.hearts-1); L.queue.push(Object.assign({},L.cur)); } setFooter('bad',true,'Tohle není ono',r.correctHTML||''); }
   updateTop(); save();
 }
 $('#footBtn').addEventListener('click',()=>{
@@ -619,7 +758,7 @@ $('#footBtn').addEventListener('click',()=>{
   const st=L.state;
   if(st==='check'){ if(L.check){ const fn=L.check; L.check=null; resolve(fn()); } }
   else if(st==='continue'){ L.done++; updateTop(); next(); }
-  else if(st==='ok'||st==='bad'){ if(L.hearts<=0) showFail(); else next(); }
+  else if(st==='ok'||st==='bad'){ if(!L.free&&L.hearts<=0) showFail(); else next(); }
   else if(st==='end') exitLesson();
   else if(st==='fail') startLesson(L.lesson);
 });
@@ -634,8 +773,8 @@ function renderIntro(ex,m){
   if(!tip&&PLUS3[x]) tip=`Jako „${PLUS3[x]}“, jen přidej bod 3.`;
   if(!tip&&PLUS6[x]) tip=`Jako „${PLUS6[x]}“, jen přidej bod 6.`;
   if(d) tip=x==='1'?'Číselný znak (body 3, 4, 5 a 6) říká: následující písmena a až j čti jako číslice 1 až 0.':`Číslice ${x} je písmeno „${DIGIT[x]}“ za číselným znakem.`;
-  m.innerHTML=`<div class="intro"><span class="tag">${d?'Nové číslo':'Nové písmeno'}</span>
-    <div class="stage"><div class="intro__glyph">${x}</div><span class="bgroup">${itemCells(x).map(c=>cellHTML(c,'xl',{numbers:true})).join('')}</span></div>
+  m.innerHTML=`<div class="intro"><span class="tag">${d?'Nové číslo':isLetter(x)?'Nové písmeno':'Nový znak'}</span>
+    <div class="stage">${x.length>1?'':`<div class="intro__glyph">${esc(x)}</div>`}${SYM[x]?`<div class="intro__name">${SYM[x]}</div>`:''}<span class="bgroup">${itemCells(x).map(c=>cellHTML(c,'xl',{numbers:true})).join('')}</span></div>
     <p class="intro__dots">${line}</p><p class="intro__tip">${tip}</p></div>`;
   setFooter('continue',true);
 }
@@ -651,22 +790,22 @@ function markOpts(m,item){
 }
 function renderPickLetter(ex,m){
   const x=ex.item, opts=shuffle([x,...distractors(x,ex.pool,optCount(ex.pool))]);
-  m.innerHTML=`<h2 class="prompt">${isDigit(x)?'Které číslo to je?':'Které písmeno to je?'}</h2>
+  m.innerHTML=`<h2 class="prompt">${isDigit(x)?'Které číslo to je?':isLetter(x)?'Které písmeno to je?':'Který znak to je?'}</h2>
     <div class="stage">${cellsHTML(itemCells(x),'xl')}</div>
-    <div class="opts">${opts.map((o,i)=>`<button class="opt" data-v="${o}"><span class="key" aria-hidden="true">${i+1}</span><span class="glyph">${o}</span></button>`).join('')}</div>`;
+    <div class="opts">${opts.map((o,i)=>`<button class="opt" data-v="${esc(o)}"><span class="key" aria-hidden="true">${i+1}</span>${glyphHTML(o)}</button>`).join('')}</div>`;
   bindOpts(m);
-  L.check=()=>{ const ok=L.sel===x; rec(x,ok); if(!ok) rec(L.sel,false); markOpts(m,x); return {ok,correctHTML:`Správně je „${x}“: ${cellsHTML(itemCells(x),'sm')}`}; };
+  L.check=()=>{ const ok=L.sel===x; rec(x,ok); if(!ok) rec(L.sel,false); markOpts(m,x); return {ok,correctHTML:`Správně je „${esc(nameOf(x))}“: ${cellsHTML(itemCells(x),'sm')}`}; };
 }
 function renderPickCell(ex,m){
   const x=ex.item, opts=shuffle([x,...distractors(x,ex.pool,optCount(ex.pool))]);
-  m.innerHTML=`<h2 class="prompt">${isDigit(x)?'Najdi číslo':'Najdi písmeno'} „${x}“</h2>
-    <div class="opts" style="margin-top:22px">${opts.map((o,i)=>`<button class="opt" data-v="${o}" aria-label="Možnost ${i+1}, ${dotsText(letterDots(o))}"><span class="key" aria-hidden="true">${i+1}</span>${cellsHTML(itemCells(o),'lg')}</button>`).join('')}</div>`;
+  m.innerHTML=`<h2 class="prompt">Najdi ${kindOf(x)} „${esc(nameOf(x))}“</h2>
+    <div class="opts" style="margin-top:22px">${opts.map((o,i)=>`<button class="opt" data-v="${esc(o)}" aria-label="Možnost ${i+1}, ${dotsText(letterDots(o))}"><span class="key" aria-hidden="true">${i+1}</span>${cellsHTML(itemCells(o),'lg')}</button>`).join('')}</div>`;
   bindOpts(m);
-  L.check=()=>{ const ok=L.sel===x; rec(x,ok); markOpts(m,x); return {ok,correctHTML:`„${x}“ je ${dotsText(letterDots(x))}.`}; };
+  L.check=()=>{ const ok=L.sel===x; rec(x,ok); markOpts(m,x); return {ok,correctHTML:`„${esc(nameOf(x))}“ je ${dotsText(letterDots(x))}.`}; };
 }
 function renderBuild(ex,m){
   const x=ex.item, d=isDigit(x), target=new Set(letterDots(x).split('')), sel=new Set();
-  m.innerHTML=`<h2 class="prompt">Napiš ${d?'číslo':'písmeno'} „${x}“</h2>
+  m.innerHTML=`<h2 class="prompt">Napiš ${kindOf(x)} „${esc(nameOf(x))}“</h2>
     <p class="sub">${ex.hint?'Klepni na '+dotsText(letterDots(x))+'.':d?'Číselný znak už je na místě, doplň druhou buňku.':'Klepni na body, které tvoří znak.'}</p>
     <div class="stage">${d?cellHTML(BR['#'],'lg'):''}
       <div class="build" role="group" aria-label="Šestibodová buňka">${[1,4,2,5,3,6].map(n=>`<button class="bdot${ex.hint&&target.has(String(n))?' ghost':''}" data-n="${n}" aria-pressed="false" aria-label="Bod ${n}">${n}</button>`).join('')}</div></div>
@@ -684,14 +823,14 @@ function renderBuild(ex,m){
     const ok=sel.size===target.size&&[...sel].every(n=>target.has(n));
     rec(x,ok);
     $$('.bdot',m).forEach(b=>{ const n=b.dataset.n; b.disabled=true; b.classList.remove('ghost'); if(target.has(n)&&!sel.has(n)) b.classList.add('miss'); if(!target.has(n)&&sel.has(n)) b.classList.add('extra'); });
-    return {ok,correctHTML:`${cellsHTML(itemCells(x),'sm')}<span>„${x}“ je ${dotsText(letterDots(x))}.</span>`};
+    return {ok,correctHTML:`${cellsHTML(itemCells(x),'sm')}<span>„${esc(nameOf(x))}“ je ${dotsText(letterDots(x))}.</span>`};
   };
 }
 function renderMatch(ex,m){
   const items=ex.items, left=shuffle(items), right=shuffle(items);
   m.innerHTML=`<h2 class="prompt">Spoj dvojice</h2><p class="sub">Vyber buňku a k ní správný znak.</p>
-    <div class="match"><div class="mcol">${left.map(i=>`<button class="mt" data-side="l" data-v="${i}" aria-label="${dotsText(letterDots(i))}">${cellsHTML(itemCells(i),'sm')}</button>`).join('')}</div>
-    <div class="mcol">${right.map(i=>`<button class="mt" data-side="r" data-v="${i}">${i}</button>`).join('')}</div></div>`;
+    <div class="match"><div class="mcol">${left.map(i=>`<button class="mt" data-side="l" data-v="${esc(i)}" aria-label="${dotsText(letterDots(i))}">${cellsHTML(itemCells(i),'sm')}</button>`).join('')}</div>
+    <div class="mcol">${right.map(i=>`<button class="mt" data-side="r" data-v="${esc(i)}">${glyphHTML(i)}</button>`).join('')}</div></div>`;
   let a=null,b=null,matched=0;
   $$('.mt',m).forEach(btn=>btn.addEventListener('click',()=>{
     if(btn.classList.contains('done')||L.state!=='check') return;
@@ -717,20 +856,75 @@ function renderMatch(ex,m){
 function renderRead(ex,m){
   const num=/^[0-9]+$/.test(ex.text);
   m.innerHTML=`<h2 class="prompt">Přečti a napiš</h2>
-    <div class="stage">${wordHTML(ex.text,ex.text.length>11?'md':'lg')}</div>
+    <div class="stage">${(()=>{ const mx=Math.max(...ex.text.split(' ').map(w=>toCells(w).length)); return wordHTML(ex.text,mx>=7?'sm':(ex.text.length>11||mx>=5)?'md':'lg'); })()}</div>
     <input class="answer" id="answer" type="text" ${num?'inputmode="numeric"':''} autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="${num?'Napiš číslo':'Napiš, co čteš'}" aria-label="Tvoje odpověď">`;
   const inp=$('#answer',m);
   inp.addEventListener('input',()=>{ if(L.state==='check') setFooter('check',inp.value.trim()!==''); });
   setTimeout(()=>inp.focus({preventScroll:true}),60);
   L.check=()=>{
-    const v=norm(inp.value), t=norm(ex.text), ok=v===t;
+    const cs=/\p{Lu}/u.test(ex.text), low=s=>s.toLowerCase();
+    let v=norm(inp.value), t=norm(ex.text); if(!cs){ v=low(v); t=low(t); }
+    const ok=v===t;
     inp.disabled=true;
-    const letters=[...t].filter(c=>c!==' '&&!isDigit(c));
-    if(ok) [...new Set(letters)].forEach(c=>rec(c,true));
-    else if(v.length===t.length) [...t].forEach((c,i)=>{ if(c!==' '&&!isDigit(c)&&v[i]!==c) rec(c,false); });
+    const key=c=>{ const k=low(c); return (k!==' '&&k!=='#'&&!isDigit(k)&&BR[k])?k:null; };
+    if(ok) [...new Set([...t].map(key).filter(Boolean))].forEach(c=>rec(c,true));
+    else if(v.length===t.length) [...t].forEach((c,i)=>{ const k=key(c); if(k&&v[i]!==c) rec(k,false); });
+    const noP=s=>s.replace(/[.,;:?!\-'"()*+\/]/g,'').replace(/\s+/g,' ').trim();
     let extra='';
-    if(!ok&&strip(v)===strip(t)) extra=' Pozor na diakritiku – v Braillově písmu jsou to úplně jiná písmena.';
-    return {ok,correctHTML:`<span>Správně: „${ex.text}“.${extra}</span>`};
+    if(!ok){
+      if(low(v)===low(t)) extra=' Pozor na velká písmena – bod 6 před písmenem (nebo body 5 6 před slovem) znamená velké písmeno.';
+      else if(strip(low(v))===strip(low(t))) extra=' Pozor na diakritiku – v Braillově písmu jsou to úplně jiná písmena.';
+      else if(noP(low(v))===noP(low(t))) extra=' Pozor na interpunkci – i znaménka mají v Braillově písmu své body.';
+    }
+    return {ok,correctHTML:`<span>Správně: „${esc(ex.text)}“.${extra}</span>`};
+  };
+}
+function expectedCells(text){ const out=[]; text.split(' ').forEach((w,i)=>{ if(i) out.push(''); toCells(w).forEach(c=>out.push(c)); }); return out; }
+function renderWrite(ex,m){
+  const exp=expectedCells(ex.text), cells=[], cur=new Set();
+  const needs=[]; if(/\p{Lu}/u.test(ex.text)) needs.push('velké písmeno'); if(/\d/.test(ex.text)) needs.push('číselný znak');
+  m.innerHTML=`<h2 class="prompt">Napiš v Braillově písmu</h2>
+    <p class="wr-target">${esc(ex.text)}</p>
+    <p class="sub">${needs.length?'Nezapomeň na '+needs.join(' a ')+'. ':''}Mezeru mezi slovy udělá prázdná buňka.</p>
+    <div class="stage wr-stage">
+      <div class="wr-strip" id="wrStrip" aria-live="polite"></div>
+      <div class="build" role="group" aria-label="Šestibodová buňka">${[1,4,2,5,3,6].map(n=>`<button class="bdot" data-n="${n}" aria-pressed="false" aria-label="Bod ${n}">${n}</button>`).join('')}</div>
+      <div class="wr-tools"><button class="btn btn--ghost wr-btn" id="wrBack">⌫ Zpět</button><button class="btn btn--ghost wr-btn" id="wrSpace">Mezera</button><button class="btn wr-btn" id="wrNext">Další buňka</button></div>
+      <div class="wr-sol" id="wrSol" hidden></div>
+    </div>
+    <p class="kbd-hint">F D S J K L jsou body 1 až 6. Mezerník přejde na další buňku (prázdná buňka = mezera), Backspace vrátí zpět, Enter zkontroluje.</p>`;
+  const strip=$('#wrStrip',m), dotBtns=$$('.bdot',m);
+  const curStr=()=>[...cur].sort().join('');
+  const draw=marks=>{
+    strip.innerHTML=cells.map((c,i)=>`<span class="wr-c${c===''?' wr-sp':''}${marks&&marks[i]?' '+marks[i]:''}">${c===''?'':cellHTML(c,'sm')}</span>`).join('')+(marks?'':`<span class="wr-c wr-cur">${cellHTML(curStr(),'sm')}</span>`);
+    if(L.state==='check') setFooter('check',cells.length>0||cur.size>0);
+  };
+  const resetDots=()=>dotBtns.forEach(b=>{ b.classList.remove('on'); b.setAttribute('aria-pressed','false'); });
+  const toggle=n=>{
+    if(L.state!=='check') return;
+    n=String(n); if(cur.has(n)) cur.delete(n); else cur.add(n);
+    const b=dotBtns.find(x=>x.dataset.n===n); b.classList.toggle('on',cur.has(n)); b.setAttribute('aria-pressed',String(cur.has(n)));
+    draw();
+  };
+  const commit=()=>{ if(!cur.size) return; cells.push(curStr()); cur.clear(); resetDots(); };
+  const space=()=>{ if(L.state!=='check') return; const had=cur.size>0; commit(); if(!had&&cells.length&&cells[cells.length-1]!=='') cells.push(''); draw(); };
+  const nextCell=()=>{ if(L.state!=='check') return; commit(); draw(); };
+  const back=()=>{ if(L.state!=='check') return; if(cur.size){ cur.clear(); resetDots(); } else cells.pop(); draw(); };
+  L.toggle=toggle; L.wspace=space; L.wback=back;
+  dotBtns.forEach(b=>b.addEventListener('click',()=>toggle(b.dataset.n)));
+  $('#wrNext',m).addEventListener('click',nextCell);
+  $('#wrSpace',m).addEventListener('click',()=>{ if(L.state!=='check') return; commit(); if(cells.length&&cells[cells.length-1]!=='') cells.push(''); draw(); });
+  $('#wrBack',m).addEventListener('click',back);
+  draw();
+  L.check=()=>{
+    commit(); while(cells.length&&cells[cells.length-1]==='') cells.pop();
+    const ok=cells.length===exp.length&&cells.every((c,i)=>c===exp[i]);
+    draw(cells.map((c,i)=>c===exp[i]?'':'bad'));
+    dotBtns.concat($$('.wr-btn',m)).forEach(b=>b.disabled=true);
+    $('.build',m).style.display='none'; $('.wr-tools',m).style.display='none';
+    if(ok) [...new Set([...ex.text.toLowerCase()].filter(c=>BR[c]&&c!=='#'&&!isDigit(c)))].forEach(c=>rec(c,true));
+    else { const s=$('#wrSol',m); s.innerHTML=`<h3>Správně se to píše takhle:</h3>${wordHTML(ex.text,'sm')}`; s.hidden=false; }
+    return {ok,correctHTML:`<span>${cells.length!==exp.length?`Správný zápis má ${exp.length} ${plural(exp.length,'buňku','buňky','buněk')}, tvůj ${cells.length}. `:''}Červeně jsou buňky, které nesedí.</span>`};
   };
 }
 function award(x){
@@ -741,24 +935,26 @@ function award(x){
 }
 function finish(){
   const perfect=L.mistakes===0, gained=10+(perfect?5:0);
-  const wasDone=!L.lesson.review&&!!S.completed[L.lesson.id];
+  const free=!!(L.lesson.review||L.lesson.practice);
+  const wasDone=!free&&!!S.completed[L.lesson.id];
   award(gained);
-  if(!L.lesson.review) S.completed[L.lesson.id]=(S.completed[L.lesson.id]||0)+1;
+  if(!free) S.completed[L.lesson.id]=(S.completed[L.lesson.id]||0)+1;
   save(); renderHeader();
-  const acc=Math.round(100*L.total/(L.total+L.mistakes));
+  const acc=L.free?Math.round(100*(L.total-L.mistakes)/Math.max(1,L.total)):Math.round(100*L.total/(L.total+L.mistakes));
   const st=S.streak;
-  const nextL=!L.lesson.review?LESSONS[L.lesson.idx+1]:null;
+  const nextL=!free?LESSONS[L.lesson.idx+1]:null;
   const unlockMsg=(nextL&&!wasDone)?`<p class="unlock">Odemkla se další lekce: <b>${lessonTitle(nextL)}</b></p>`:'';
   $('#barFill').style.width='100%';
   $('#lessonMain').innerHTML=`<div class="result">
     <div class="stage" style="min-height:0">${wordHTML(perfect?'bez chyby':'hotovo','md')}</div>
-    <h2>${L.lesson.review?'Opakování hotové':'Lekce hotová'}</h2>
+    <h2>${L.lesson.practice?'Procvičování hotové':L.lesson.review?'Opakování hotové':'Lekce hotová'}</h2>
     <p class="muted">${perfect?'Bez jediné chyby. Na buňce nahoře je napsáno „bez chyby“.':'Na buňce nahoře je napsáno „hotovo“. Zkus si ho přečíst.'}</p>
     <div class="kpis">
       <div class="kpi kpi--xp"><b>+${gained}</b><span>XP</span></div>
       <div class="kpi kpi--acc"><b>${acc} %</b><span>přesnost</span></div>
       <div class="kpi kpi--streak"><b>${st}</b><span>${plural(st,'den','dny','dní')} v řadě</span></div>
-    </div>${unlockMsg}</div>`;
+    </div>${unlockMsg}${L.lesson.practice?'<button class="linkish" id="again">Procvičovat dál</button>':''}</div>`;
+  const ag=$('#again'); if(ag){ const les=L.lesson; ag.addEventListener('click',()=>startLesson(les)); }
   setFooter('end',true);
 }
 function showFail(){
@@ -786,6 +982,11 @@ document.addEventListener('keydown',e=>{
   if(t==='build'){
     const map={f:1,d:2,s:3,j:4,k:5,l:6,'1':1,'2':2,'3':3,'4':4,'5':5,'6':6};
     if(map[k]&&L.toggle){ e.preventDefault(); L.toggle(map[k]); }
+  } else if(t==='write'){
+    const map={f:1,d:2,s:3,j:4,k:5,l:6};
+    if(map[k]&&L.toggle){ e.preventDefault(); L.toggle(map[k]); }
+    else if(e.key===' '&&L.wspace){ e.preventDefault(); L.wspace(); }
+    else if(e.key==='Backspace'&&L.wback){ e.preventDefault(); L.wback(); }
   } else if((t==='pickLetter'||t==='pickCell')&&/^[1-4]$/.test(k)){
     const btn=$$('#lessonMain .opt')[+k-1]; if(btn){ e.preventDefault(); btn.click(); }
   }
@@ -799,3 +1000,5 @@ initRemote();
 </script>
 </body>
 </html>
+
+</body></html>
